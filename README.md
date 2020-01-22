@@ -38,7 +38,7 @@ Access for all and listing OK
 </Directory>
 ```
 
-Reverse Proxy [P] for internal or remove [P] for redirection
+Reverse Proxy [P] for local request then stay on the local server or remove [P] for redirection to the other server
 ```
 ProxyRequests Off
 RewriteEngine on
