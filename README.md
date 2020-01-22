@@ -7,7 +7,7 @@ yum install mod_ssl
 ```
 
 Tree
-* [Default tree](tree)
+* [Default tree](tree.md)
 ```bash
 cd /etc/httpd
 .
@@ -34,8 +34,12 @@ cd /etc/httpd
 ./run
 ```
 
+Default http configuration
+* [default httpd.conf](httpd.conf.md)
+
+
 Default SSL conf
-* [default ssl.conf](ssl.conf)
+* [default ssl.conf](ssl.conf.md)
 ```bash
 grep "^[^#]" conf.d/ssl.conf
 Listen 443 https
