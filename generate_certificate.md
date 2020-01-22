@@ -1,12 +1,10 @@
 Source https://admin-serv.net/blog/670/creer-et-installer-un-certificat-ssl-sous-nginx/
 
-Préparation des certificats SSL
+## Préparation des certificats SSL
 
-Rendez-vous sur votre serveur:
-
-cd /etc/nginx/
 ### Création d'un dossier ssl pour y mettre les certificats
 ```bash
+cd /etc/nginx/
 mkdir ssl
 cd ssl/
 ```
@@ -64,7 +62,7 @@ Subject: C=FR, ST=France, L=Paris, O=Admin Serveur, OU=Admin Serveur, CN=admin-s
 [...]
 ```
 
-Déprotection de la clé
+### Déprotection de la clé
 ```bash
 openssl rsa -in admin-serv.net.key -out admin-serv.net.deprotected.key
 Enter pass phrase for admin-serv.net.key:
