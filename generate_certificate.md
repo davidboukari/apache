@@ -56,6 +56,7 @@ An optional company name []:
 <p>
 Votre fichier CSR est désormais créé. Nous allons toutefois en profiter pour déprotéger le fichier KEY afin que NGinx puisse se relancer par la suite tout seul. Vous pouvez en profiter pour vérifer les informations saisies:
 </p>
+
 ```bash
 openssl req -noout -text -in admin-serv.net.csr
 [...]
