@@ -26,6 +26,7 @@ Set certificate and private key default SSL VirtualHost
 
 Generate a certificate
 * [Generate SSL Certificate](https://github.com/davidboukari/ssl)
+* [Other link](generate_certificate.md)
 
 
 Access for all and listing OK
