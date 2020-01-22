@@ -1,3 +1,13 @@
+* .pem 
+
+* .crl ( certificate revocation list) est la liste des identifiants des certificats qui ont été révoqués ou invalidés1 et qui ne sont donc plus dignes de confiance. 
+
+* .key (Private key)
+
+* .csr (Certificate Signing Request) => a request text to generate de certificate 
+
+* .crt (Certificate) 
+
 Source https://admin-serv.net/blog/670/creer-et-installer-un-certificat-ssl-sous-nginx/
 
 ## Préparation des certificats SSL
