@@ -24,6 +24,8 @@ Enter pass phrase for admin-serv.net.key:
 Verifying - Enter pass phrase for admin-serv.net.key:
 ```
 
+### Generation du .csr
+
 Votre fichier .key (protégé par mot de passe) est maintenant créé, nous passons à la génération du CSR:
 ```bash
 openssl req -new -key admin-serv.net.key -out admin-serv.net.csr
@@ -69,3 +71,54 @@ Enter pass phrase for admin-serv.net.key:
 writing RSA key
 ```
 
+### Demande de certificat verifié aupres de NameCheap
+
+<p>
+Votre clé n'a maintenant plus de mot de passe bloquant qui aurait gêné un restart de NGinx.
+Soumission à NameCheap
+
+Rendez-vous sur NameCheap, dans la section Certificat SSL. Je vous recommande le "RapidSSL Domain Validated" qui nécessite uniquement une validation par email. C'est rapide et simple.
+
+NameCheap va vous demander votre CSR et le type de votre serveur Web. NGinx n'étant pas indiqué vous pouvez mettre n'importe quoi, personnellement je mets Apache 2. Sélectionnez ensuite une adresse email que vous pouvez vérifier, un lien de confirmation vous conduisant chez GeoTrust vous sera transmis.
+
+Cliquez sur ce lien, vous allez, dans les secondes qui suivent recevoir votre certificat SSL (Fichier CRT) par email.
+
+Attention, NameCheap va vous transmettre deux certificats SSL : un nommé "Web Server CERTIFICATE", et un autre nommé "INTERMEDIATE CA". Il va vous falloir les deux pour que le tout fonctionne parfaitement.
+
+Enregistrez le "Web Server CERTIFICATE" dans un fichier nommé "admin-serv.crt", et enregistrez le "INTERMEDIATE CA" dans un fichier nommé "rapidssl.ca.crt".
+
+Nous allons ensuite créé un unique fichier CRT contenant ces deux précédents certificats
+
+cat admin-serv.crt rapidssl.ca.crt > certificate.admin-serv.net.crt
+
+Voilà le tout est prêt, il ne vous reste plus qu'à configurer NGinx correctement pour lui faire utiliser votre certificat
+</p>
+
+### Use the certificate with nginx
+
+```bash
+cat /etc/nginx/sites-enabled/default
+
+server {
+        listen 443;
+        server_name admin-serv.net;
+        ssl on;
+        ssl_certificate /etc/nginx/ssl/certificate.admin-serv.net.crt;
+        ssl_certificate_key     /etc/nginx/ssl/admin-serv.net.deprotected.key;
+        location / {
+                root    /home/www/;
+                index   index.php index.html index.htm;
+        }
+}
+```
+
+
+Relancez ensuite NGinx
+
+```bash
+systemctl restart restart
+```
+
+### Tests
+
+curl -v -I https://admin-serv.net/
