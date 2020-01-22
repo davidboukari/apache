@@ -5,7 +5,7 @@ Préparation des certificats SSL
 Rendez-vous sur votre serveur:
 
 cd /etc/nginx/
-# Création d'un dossier ssl pour y mettre les certificats
+### Création d'un dossier ssl pour y mettre les certificats
 ```bash
 mkdir ssl
 cd ssl/
@@ -13,7 +13,7 @@ cd ssl/
 
 ## Génération des certificats:
 
-# Génération du fichier .key
+### Génération du fichier .key
 
 ```bash
 openssl genrsa -des3 -out admin-serv.net.key 2048
