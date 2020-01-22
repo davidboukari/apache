@@ -78,15 +78,6 @@ Generate a certificate
 * [Generate SSL Certificate](https://github.com/davidboukari/ssl)
 
 
-
-
-
-
-
-
-
-
-
 Access for all and listing OK
 ```bash
 <Directory />
@@ -97,3 +88,12 @@ Access for all and listing OK
 </Directory>
 ```
 
+Reverse Proxy [P] for internal or remove [P] for redirection
+```
+ProxyRequests Off
+RewriteEngine on
+RewriteCond    %{REQUEST_URI}  .*ProjetTestEnLigne(.*)
+RewriteRule    ^.*ProjetTestEnLigne(.*)      http://myIP/ProjetTestEnLigne$1 [P]
+
+RewriteCond    %{REQUEST_URI}  .*PROJETTESTENLIGNE_WEB(.*)
+RewriteRule    ^.*PROJETTESTENLIGNE_WEB(.*)      http://myIP/PROJETTESTENLIGNE_WEB$1 [P]
