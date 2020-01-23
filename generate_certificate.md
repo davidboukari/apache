@@ -85,7 +85,7 @@ writing RSA key
 
 <p>
 Votre clé n'a maintenant plus de mot de passe bloquant qui aurait gêné un restart de NGinx.
-Soumission à NameCheap
+Soumission à [NameCheap](https://www.namecheap.com/?aff=13571)
 
 Rendez-vous sur NameCheap, dans la section Certificat SSL. Je vous recommande le "RapidSSL Domain Validated" qui nécessite uniquement une validation par email. C'est rapide et simple.
 
