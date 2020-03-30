@@ -12,6 +12,11 @@ yum install mod_ssl
 ### Default http configuration
 * [default httpd.conf](httpd.conf.md)
 
+## Eliminate unwanted headers
+
+* set ServerTokens to Off or Prod
+* set ServerSignature to Off
+
 
 ### Default SSL conf
 * [default ssl.conf](ssl.conf.md)
