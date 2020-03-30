@@ -14,9 +14,10 @@ yum install mod_ssl
 
 ## Eliminate unwanted headers
 
-* set ServerTokens to Off or Prod
-* set ServerSignature to Off
-
+```bash
+ServerTokens Prod
+ServerSignature Off
+```
 
 ### Default SSL conf
 * [default ssl.conf](ssl.conf.md)
