@@ -76,3 +76,9 @@ ProxyPass "/test" "balancer://mycluster"
 ProxyPassReverse "/test" "balancer://mycluster"
 ```
 
+## debian apache php
+```
+apt-get update
+apt-get install php libapache2-mod-php
+
+```
