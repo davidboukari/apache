@@ -20,7 +20,7 @@ ServerSignature Off
 ```
 
 ## Test config
-* 
+* https://www.digicert.com/kb/csr-ssl-installation/apache-openssl.htm
 ```
 Test your Apache configuration file before restarting.
 As a best practice, check your Apache configuration file for any errors before restarting Apache.
