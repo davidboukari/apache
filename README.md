@@ -19,11 +19,35 @@ ServerTokens Prod
 ServerSignature Off
 ```
 
+## Test config
+* 
+```
+Test your Apache configuration file before restarting.
+As a best practice, check your Apache configuration file for any errors before restarting Apache.
+    Caution: Apache won't start again if your configuration files have syntax errors.
+Run the following command to test your configuration file (on some systems, it's apache2ctl):
+
+apachectl configtest
+
+Restart Apache. 
+```
+
 ### Default SSL conf
 * [default ssl.conf](ssl.conf.md)
 
 Set certificate and private key default SSL VirtualHost 
+* https://www.digicert.com/kb/csr-ssl-installation/apache-openssl.htm
 ```bash
+<VirtualHost 192.168.0.1:443>
+    DocumentRoot /var/www/html2
+    ServerName www.yourdomain.com
+        SSLEngine on
+        SSLCertificateFile /path/to/your_domain_name.crt
+        SSLCertificateKeyFile /path/to/your_private.key
+        SSLCertificateChainFile /path/to/DigiCertCA.crt
+</VirtualHost>
+
+or 
 <VirtualHost _default_:443>
   SSLCertificateFile /etc/pki/tls/certs/localhost.crt
   SSLCertificateKeyFile /etc/pki/tls/private/localhost.key
